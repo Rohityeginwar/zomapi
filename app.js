@@ -45,7 +45,7 @@ app.get('/restaurants', async(req,res) => {
     else{
         query = {}
     }
-    let collection = "restaurants";
+    let collection = "restaurantdata";
     let output = await getData(collection,query);
     res.send(output)
 })
@@ -69,7 +69,7 @@ app.get('/filter/:mealId', async(req,res) => {
     else{
         query = {}
     }
-    let collection = "restaurants";
+    let collection = "restaurantdata";
     let output = await getData(collection,query);
     res.send(output)
 })
@@ -78,7 +78,7 @@ app.get('/filter/:mealId', async(req,res) => {
 app.get('/details/:id', async(req,res) => {
     let id = new Mongo.ObjectId(req.params.id)
     let query = {_id:id}
-    let collection = "restaurants";
+    let collection = "restaurantdata";
     let output = await getData(collection,query);
     res.send(output)
 })
@@ -88,7 +88,7 @@ app.get('/details/:id', async(req,res) => {
 app.get('/menu/:id',async(req,res) => {
     let id = Number(req.params.id);
     let query = {restaurant_id:id};
-    let collection = "menu";
+    let collection = "restaurantmenu";
     let output = await getData(collection,query);
     res.send(output)
 })
