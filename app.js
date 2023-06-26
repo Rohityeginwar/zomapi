@@ -26,7 +26,7 @@ app.get('/location',async (req,res)=>{
 //get all mealType
 app.get('/mealType', async (req,res) => {
     let query = {};
-    let collection = "mealType";
+    let collection = "mealtype";
     let output = await getData(collection,query);
     res.send(output)
 })
@@ -121,7 +121,7 @@ app.post('/placeOrder',async(req,res) => {
 app.post('/menuDetails',async(req,res) => {
     if(Array.isArray(req.body.id)){
         let query = {menu_id:{$in:req.body.id}};
-        let collection = 'menu';
+        let collection = 'restaurantmenu';
         let output = await getData(collection,query);
         res.send(output)
     }else{
